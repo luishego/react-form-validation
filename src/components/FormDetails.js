@@ -2,21 +2,27 @@ import React, { Component } from "react";
 import FormContainer from "./FormContainer";
 
 class FormDetails extends Component {
-  state = {
-    username: "",
-    email: ""
-  };
-  nameHandler = target => {
+  constructor(props) {
+    super(props);
+    this.state = {
+      username: "",
+      email: ""
+    };
+  }
+
+  nameHandler = e => {
     this.setState({
-      username: target.value,
-      email: target.value
+      username: e.target.value,
+      email: e.target.value
     });
-    console.log(this.username, this.email);
   };
   render() {
     return (
       <div>
-        <FormContainer />
+        <FormContainer
+          changed={this.nameHandler}
+          currentUsername={this.state.username}
+        />
       </div>
     );
   }

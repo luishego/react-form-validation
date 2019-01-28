@@ -1,19 +1,19 @@
 import React from "react";
 
-const FormContainer = () => {
+const FormContainer = props => {
   return (
     <form>
       <input
         type="text"
         placeholder="Username"
-        //value={this.state.username}
-        //onChange={this.nameHandler}
+        value={props.nameHandler}
+        onChange={props.currentUsername}
       />
       <input
-        type="email  "
+        type="email"
         placeholder="Email"
-        //value={this.state.email}
-        //onChange={this.nameHandler}
+        value={props.email}
+        onChange={props.nameHandler}
       />
       <button type="submit">Submit that shit!</button>
     </form>
