@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Form from "./Form";
-import Greeting from "./Greeting";
 
 class FormDetails extends Component {
   constructor(props) {
@@ -9,11 +8,6 @@ class FormDetails extends Component {
       userName: ""
     };
   }
-  submitHandler = e => {
-    e.preventDefault();
-    const data = this.state;
-    console.log(data);
-  };
   inputChangeHandler = e => {
     this.setState({
       [e.target.name]: e.target.value
@@ -25,12 +19,10 @@ class FormDetails extends Component {
     return (
       <div>
         <Form
-          onSubmit={this.submitHandler}
           onChange={this.inputChangeHandler}
           userName={userName}
           style={{ color: "blue" }}
         />
-        <Greeting userName={userName} />
       </div>
     );
   }

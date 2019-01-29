@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import FormContainer from "./components/FormContainer";
+import AppRouter from "./router";
 
 class App extends Component {
   render() {
     return (
       <div>
-        <FormContainer />
+        <AppRouter />
       </div>
     );
   }
