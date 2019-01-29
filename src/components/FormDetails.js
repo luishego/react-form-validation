@@ -1,28 +1,40 @@
 import React, { Component } from "react";
-import FormContainer from "./FormContainer";
-
 class FormDetails extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: "",
-      email: ""
+      userName: ""
     };
   }
-
-  nameHandler = e => {
+  submitHandler = e => {
+    e.preventDefault();
+    const data = this.state;
+    console.log(data);
+  };
+  inputChangeHandler = e => {
     this.setState({
-      username: e.target.value,
-      email: e.target.value
+      [e.target.name]: e.target.value
     });
   };
   render() {
+    const { userName } = this.state;
     return (
       <div>
-        <FormContainer
-          changed={this.nameHandler}
-          currentUsername={this.state.username}
-        />
+        <form onSubmit={this.submitHandler}>
+          <p>
+            <input
+              type="text"
+              placeholder="Username"
+              value={userName}
+              name="userName"
+              onChange={this.inputChangeHandler}
+            />
+          </p>
+          <p>
+            <button>Submit that shit!</button>
+          </p>
+        </form>
+        <h4>Welcome {userName}</h4>
       </div>
     );
   }
