@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import Form from "./Form";
+import Greeting from "./Greeting";
+
 class FormDetails extends Component {
   constructor(props) {
     super(props);
@@ -18,23 +21,16 @@ class FormDetails extends Component {
   };
   render() {
     const { userName } = this.state;
+
     return (
       <div>
-        <form onSubmit={this.submitHandler}>
-          <p>
-            <input
-              type="text"
-              placeholder="Username"
-              value={userName}
-              name="userName"
-              onChange={this.inputChangeHandler}
-            />
-          </p>
-          <p>
-            <button>Submit that shit!</button>
-          </p>
-        </form>
-        <h4>Welcome {userName}</h4>
+        <Form
+          onSubmit={this.submitHandler}
+          onChange={this.inputChangeHandler}
+          userName={userName}
+          style={{ color: "blue" }}
+        />
+        <Greeting userName={userName} />
       </div>
     );
   }
